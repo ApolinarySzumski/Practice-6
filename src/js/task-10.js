@@ -12,23 +12,24 @@ const boxes = document.querySelector("#boxes");
 
 const createBoxes = (amount) => {
   amount = input.value;
-  const div = document.createElement("div");
-  const initSize = "30px";
-  div.style.width = initSize;
-  div.style.height = initSize;
-  // [] -> divs in [] -> [].map(width,height,bgColor)
-  let array = [];
-  console.log(div);
-  for (let i = 1; i <= amount; i++) {
-    array.push(div);
-  }
-  console.log(array);
 
-  const markup = [...array].forEach((element) => {
-    element.style.backgroundColor = getRandomHexColor();
-    boxes.append(element);
+  const initSize = 30;
+
+  let array = [];
+  for (let i = 0; i < amount; i++) {
+    array.push(i);
+  }
+
+  array.forEach((i) => {
+    const divEl = document.createElement("div");
+    divEl.style.backgroundColor = getRandomHexColor();
+    divEl.style.width = `${initSize + i * 10}px`;
+    divEl.style.height = `${initSize + i * 10}px`;
+    boxes.append(divEl);
   });
-  return markup;
 };
 
+const destroyBoxes = () => (boxes.innerHTML = "");
+
 createBtn.addEventListener("click", createBoxes);
+destroyBtn.addEventListener("click", destroyBoxes);
