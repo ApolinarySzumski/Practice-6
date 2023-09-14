@@ -5,13 +5,13 @@ function getRandomHexColor() {
 }
 
 const controls = document.querySelector("#controls");
-const input = controls.children[0];
+const controlsInput = controls.children[0];
 const createBtn = controls.children[1];
 const destroyBtn = controls.children[2];
 const boxes = document.querySelector("#boxes");
 
 const createBoxes = (amount) => {
-  amount = input.value;
+  amount = controlsInput.value;
 
   const initSize = 30;
 
